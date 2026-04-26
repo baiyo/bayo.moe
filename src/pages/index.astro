@@ -4,8 +4,7 @@ import Nav from '../components/nav.astro'
 import Hero from '../components/hero.astro'
 import Projects from '../components/projects.astro'
 import Friends from '../components/friends.astro'
-
-import cat from '../assets/CATT.gif'
+import Footer from '../components/footer.astro'
 ---
 
 <Layout title="bao">
@@ -13,29 +12,5 @@ import cat from '../assets/CATT.gif'
   <Hero />
   <Projects />
   <Friends />
-  <hr>
-  	<div id="footer">
-		<p>
-			Site licensed under <a href="https://github.com/baiyo/bayo.moe/blob/master/LICENSE"class="squiggly">AGPL v3</a>∙
-			<a href="https://github.com/baiyo/bayo.moe" class="squiggly">Source Code</a>
-		</p>
-	</div>
-
-	<img class="cat" src={cat.src} alt="cat" transition:persist />
-	<style>
-		a {
-			color: var(--color-puh);
-		}
-
-		.cat {
-			position: fixed;
-			bottom: 1rem;
-			right: 1rem;
-			width: 200px;
-			image-rendering: pixelated;
-			z-index: 99;
-			pointer-events: none;
-		}
-	</style>
-
+  <Footer />
 </Layout>
