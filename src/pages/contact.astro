@@ -4,21 +4,43 @@ import Nav from '../components/nav.astro'
 
 import github from '../assets/github.webp'
 import discord from '../assets/discord.webp'
+
+const contacts = [
+    {
+        name: "GitHub",
+        href: "https://github.com/baiyo",
+        icon: github.src,
+        handle: "@baiyo"
+    },
+    {
+        name: "Roblox Portfolio server",
+        href: "https://discord.gg/WrUuWfzSTe",
+        icon: discord.src,
+        handle: "@stellovate"
+    },
+]
+
 ---
 
 <Layout title="bao">
   <Nav />
   <h1><span class="puh">find me on</span></h1>
   <ul>
+    {contacts.map(p => (
+        <li>
+        <a class="socials" href={p.href} target="_blank">
+            <img class="icons" src={p.icon} alt={p.name} width="16" height="16" />
+            {p.name} — <span class="handle">{p.handle || `@${p.name.toLowerCase()}`}</span>
+        </a>
+        </li>
+
+    ))}
+
     <li>
-      <a class="socials" href="https://github.com/baiyo" target="_blank">
-        <img class="icons" src={github.src} alt="GitHub" width="16" height="16" />
-        GitHub — <span class="handle">@baiyo</span>
-      </a>
-    </li>
-    <li>
-        <img class="icons" src={discord.src} alt="Discord" width="16" height="16" />
-        Discord — <span class="handle">@stellovate</span>
+        <a class="socials" target="_blank">
+            <img class="icons" src={discord.src} alt="Discord" width="16" height="16" />
+            Discord — <span class="handle">@stellovate</span>
+        </a>
     </li>
   </ul>
 
