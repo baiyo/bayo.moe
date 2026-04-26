@@ -1,0 +1,87 @@
+---
+const friends = [
+  { label: "friend1", href: "https://friend1.dev", img: "https://caitlyn.moe/88x31.png" },
+  { label: "friend2", href: "https://friend2.moe", img: "https://friend2.moe/button.gif" },
+]
+---
+
+<section>
+  <div class="buttons">
+    {friends.map(f => (
+      <a href={f.href} target="_blank" title={f.label} class="btn-link">
+        <img src={f.img} alt={f.label} width="88" height="31" />
+        <span class="tooltip">{f.label}</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .buttons {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .btn-link {
+    position: relative;
+    display: inline-block;
+    line-height: 0; /* removes gap under img */
+  }
+
+  .btn-link img {
+    image-rendering: pixelated;
+    display: block;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+
+  /* hover effect on the button itself */
+  .btn-link:hover img {
+    transform: translateY(-2px);
+    opacity: 0.85;
+  }
+
+  /* tooltip that appears above on hover */
+  .tooltip {
+    position: absolute;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111;
+    color: #fff;
+    font-size: 11px;
+    font-family: system-ui, sans-serif;
+    padding: 3px 7px;
+    border-radius: 4px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  /* little arrow on the tooltip */
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: #111;
+  }
+
+  .btn-link:hover .tooltip {
+    opacity: 1;
+  }
+</style>

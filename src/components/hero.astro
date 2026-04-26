@@ -1,0 +1,80 @@
+<section>
+  <h2>hi, i'm <mark class="puh">bao!</mark></h2>
+  <p class="sub">19 years old, New Zealand</p>
+  <p>I'm a self taught developer who likes building things, mostly game development and other stuff.</p>
+
+  <h2>Skills & Technologies</h2>
+
+  <div class="skill-block">
+    <p class="skill-label">proficient in</p>
+    <div class="grid">
+      <span class="tag">Lua</span>
+      <span class="tag">Python</span>
+    </div>
+  </div>
+
+  <div class="skill-block">
+    <p class="skill-label">currently learning</p>
+    <div class="grid">
+      <span class="tag">TypeScript</span>
+      <span class="tag">C++</span>
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  mark {
+    color: var(--color-puh);
+    background: none;
+    font-weight: 700;
+  }
+
+  .sub {
+    font-size: 18px;
+    color: var(--color-text);
+    padding-bottom: 0.5rem;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .skill-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .skill-label {
+    font-size: 18px;
+    color: var(--color-text);
+    margin-bottom: 2px;
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-family: monospace;
+    font-size: 13px;
+    padding: 4px 14px;
+    border: 1.5px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-glass);
+    color: var(--color-text);
+    cursor: default;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  }
+
+  .tag:hover {
+    border-color: var(--color-puh);
+    transform: translateY(-1px);
+  }
+</style>

@@ -1,11 +1,28 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Hero from '../components/Hero.astro'
+import Projects from '../components/projects.astro'
+import Friends from '../components/Friends.astro'
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="bao">
+  <Nav />
+  <Hero />
+  <Projects />
+  <Friends />
+  <hr>
+  	<div id="footer">
+		<p>
+			Site licensed under <a href="https://github.com/fielstamper/caitlyn.moe/blob/main/LICENSE"class="squiggly">AGPL v3</a>∙
+			<a href="https://github.com/fielstamper/caitlyn.moe" class="squiggly">Source Code</a>
+		</p>
+	</div>
+
+	<style>
+		a {
+			color: var(--color-puh);
+		}
+	</style>
+
 </Layout>

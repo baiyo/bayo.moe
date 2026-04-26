@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+
+import github from '../assets/github.webp'
+import discord from '../assets/discord.webp'
+---
+
+<Layout title="bao">
+  <Nav />
+  <h1><span class="puh">find me on</span></h1>
+  <ul>
+    <li>
+      <a class="socials" href="https://github.com/baiyo" target="_blank">
+        <img class="icons" src={github.src} alt="GitHub" width="16" height="16" />
+        GitHub — <span class="handle">@baiyo</span>
+      </a>
+    </li>
+    <li>
+        <img class="icons" src={discord.src} alt="Discord" width="16" height="16" />
+        Discord — <span class="handle">@stellovate</span>
+    </li>
+  </ul>
+
+  <style>
+    .icons {
+        filter: var(--icon-filter);
+        transition: filter 0.2s ease;
+    }
+
+    .puh {
+        color: var(--color-puh);
+    }
+
+    section {
+        margin-bottom: 2.5rem;
+    }
+
+    ul {
+        margin-top: 1rem;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0;
+
+    }
+
+    li a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--color-text);
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .socials a img {
+        flex-shrink: 0;
+    }
+
+    .handle {
+        background: var(--secondary-bg);
+        /* border: 2px solid var(--color-border); */
+        border-radius: 10px;
+        padding: 3px 8px;
+        font-size: 13px;
+        color: var(--color-text);
+        transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .socials:hover .handle {
+        background: pink;
+        /* border-color: #ffa4f4; */
+        color: var(--color-text);
+    }
+  </style>
+
+</Layout>

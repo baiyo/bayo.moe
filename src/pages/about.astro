@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+---
+
+<Layout title="bao">
+  <Nav />
+  <h1><span class="puh">about me</span></h1>
+  <p class="sub">19 years old, New Zealand</p>
+
+  <div class="card">
+    <h2>hi, i'm bao!</h2>
+    <p>I'm a self taught developer learning to build apps. I am specifically interested in game development and web development.</p>
+    <h2>game development</h2>
+    <p>I have been learning game development for a few years now, and have experience with engines like Roblox Studio. I have made a few small games and prototypes which are listed on the main page</p>
+  </div>
+
+  <style>
+    .card {
+        border: 1px solid var(--color-border);
+        border-radius: 10px;
+    }
+
+    .puh {
+        color: var(--color-puh);
+    }
+
+    .sub {
+        padding-bottom: 2rem;
+    }
+
+  </style>
+
+</Layout>
