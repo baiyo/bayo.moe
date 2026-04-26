@@ -15,41 +15,7 @@
 </nav>
 
 <script>
-  function applyTheme() {
-    const saved = localStorage.getItem('theme')
-    const sun = document.getElementById('icon-sun')
-    const moon = document.getElementById('icon-moon')
-
-    if (saved === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light')
-      if (sun) sun.style.display = 'none'
-      if (moon) moon.style.display = 'block'
-    } else {
-      document.documentElement.removeAttribute('data-theme')
-      if (sun) sun.style.display = 'block'
-      if (moon) moon.style.display = 'none'
-    }
-  }
-
-  applyTheme()
-  document.addEventListener('astro:page-load', applyTheme)
-
-  document.addEventListener('astro:page-load', () => {
-    const toggle = document.getElementById('theme-toggle')
-    if (!toggle) return
-
-    toggle.addEventListener('click', () => {
-      const isLight = document.documentElement.getAttribute('data-theme') === 'light'
-      if (isLight) {
-        document.documentElement.removeAttribute('data-theme')
-        localStorage.setItem('theme', 'dark')
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light')
-        localStorage.setItem('theme', 'light')
-      }
-      applyTheme()
-    })
-  })
+  import '../scripts/themes.ts'
 </script>
 
 <style>
