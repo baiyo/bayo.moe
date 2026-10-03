@@ -1,106 +1,35 @@
-<section>
-  <div class="hero-row">
-    <div class="hero-text">
-      <h2>Hi, i'm <mark class="puh">Bao!</mark></h2>
-      <p class="sub">19 years old, New Zealand</p>
-    </div>
-    <img class="pfp" src="https://avatars.githubusercontent.com/u/119372694?v=4" alt="pfp">
+<section class="hero" aria-labelledby="intro">
+  <div class="hero-copy">
+    <h1 id="intro">Hi, I'm <span>Bao.</span><br />I like building things.</h1>
+    <p class="intro">A self-taught developer with a soft spot for games.<br class="desktop-break" /> Making ideas come to life, one project at a time.</p>
+    <p class="location">New Zealand <span>/</span> 19 years old</p>
+    <div class="actions"><a class="primary" href="#projects">Explore my work <span aria-hidden="true">&#8599;</span></a><a href="/contact">Say hello <span aria-hidden="true">&#8594;</span></a></div>
   </div>
-
-  <p>I'm a self taught developer who likes building things, mostly game development and other stuff.</p>
-
-  <h2>Skills & Technologies</h2>
-
-  <div class="skill-block">
-    <p class="skill-label">Proficient in</p>
-    <div class="grid">
-      <span class="tag">Lua</span>
-      <span class="tag">Python</span>
-    </div>
-  </div>
-
-  <div class="skill-block">
-    <p class="skill-label">Currently learning</p>
-    <div class="grid">
-      <span class="tag">TypeScript</span>
-      <span class="tag">C++</span>
-      <span class="tag">HTML</span>
-      <span class="tag">CSS</span>
-    </div>
+  <div class="portrait">
+    <div class="orbit" aria-hidden="true"></div>
+    <img src="https://avatars.githubusercontent.com/u/119372694?v=4" alt="Bao's avatar" width="180" height="180" />
+    <span class="portrait-label">&lt; hello, world /&gt;</span>
   </div>
 </section>
-
+<section class="skills" aria-labelledby="skills-title">
+  <div><p class="eyebrow">My toolkit</p><h2 id="skills-title">Always learning.</h2></div>
+  <div class="skill-group"><p>Comfortable with</p><div class="tags"><span>Lua</span><span>Python</span></div></div>
+  <div class="skill-group"><p>Currently exploring</p><div class="tags"><span>TypeScript</span><span>C++</span><span>HTML</span><span>CSS</span></div></div>
+</section>
 <style>
-  mark {
-    color: var(--color-puh);
-    background: none;
-    font-weight: 700;
-  }
-
-  section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .hero-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  .hero-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .sub {
-    font-size: 18px;
-    color: var(--color-text);
-  }
-
-  .pfp {
-    width: 100px;
-    height: 100px;
-    /* border-radius: 9999px;
-    border: 2px solid var(--color-border); */
-    flex-shrink: 0;
-  }
-
-  .skill-block {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .skill-label {
-    font-size: 18px;
-    color: var(--color-text);
-    margin-bottom: 2px;
-  }
-
-  .grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .tag {
-    font-family: monospace;
-    font-size: 13px;
-    padding: 4px 14px;
-    border: 1.5px solid var(--color-border);
-    border-radius: 10px;
-    background: var(--color-glass);
-    color: var(--color-text);
-    cursor: default;
-    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
-  }
-
-  .tag:hover {
-    border-color: var(--color-puh);
-    transform: translateY(-1px);
-  }
+  .hero { display: grid; grid-template-columns: 1fr 230px; align-items: center; gap: 24px; padding: 54px 0 64px; }
+  .eyebrow { display: flex; align-items: center; gap: 9px; } .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-puh); box-shadow: 0 0 12px var(--color-puh); }
+  h1 { font-size: clamp(2.5rem, 5.2vw, 3.6rem); margin: 24px 0 20px; line-height: 1.12; letter-spacing: -.055em; } h1 span { color: var(--color-puh); }
+  .intro { font-size: 15px; line-height: 1.85; } .location { font-size: 12px; margin-top: 18px; } .location span { color: var(--color-border); margin: 0 10px; }
+  .actions { display: flex; align-items: center; gap: 24px; margin-top: 30px; font-size: 13px; font-weight: 600; }
+  .primary { display: flex; gap: 20px; padding: 12px 18px; border-radius: 9px; background: var(--color-puh); color: var(--color-bg); transition: transform .2s; } .primary:hover { transform: translateY(-2px); }
+  .portrait { position: relative; display: grid; place-items: center; height: 260px; }
+  .portrait img { width: 174px; height: 174px; border-radius: 36px; transform: rotate(-7deg); border: 6px solid var(--secondary-bg); box-shadow: 0 20px 60px #0003; }
+  .orbit { position: absolute; width: 232px; height: 232px; border: 1px dashed var(--color-border); border-radius: 50%; }
+  .portrait-label { position: absolute; bottom: 15px; right: 4px; padding: 7px 12px; background: var(--secondary-bg); border: 1px solid var(--color-border); border-radius: 7px; font: 11px ui-monospace, monospace; color: var(--color-puh); transform: rotate(4deg); }
+  .skills { display: grid; grid-template-columns: 1.2fr 1fr 1.8fr; gap: 24px; align-items: center; padding: 26px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); margin-bottom: 64px; }
+  .skills h2 { font-size: 19px; margin-top: 6px; } .skill-group p { font-size: 11px; margin-bottom: 10px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; } .tags span { font: 11px ui-monospace, monospace; background: var(--color-glass); border: 1px solid var(--color-border); border-radius: 6px; padding: 5px 9px; }
+  @media (max-width: 700px) { .hero { grid-template-columns: 1fr 170px; gap: 12px; } .portrait img { width: 135px; height: 135px; } .orbit { width: 170px; height: 170px; } .portrait-label { right: -5px; bottom: 32px; } .skills { grid-template-columns: 1fr 1fr; } .skills > div:first-child { grid-column: 1 / -1; } }
+  @media (max-width: 500px) { .hero { grid-template-columns: 1fr; padding-top: 30px; gap: 32px; } .hero-copy { order: 1; } .portrait { height: 180px; width: 180px; margin: 0 auto; } .portrait-label { bottom: -2px; } .desktop-break { display: none; } .skills { gap: 20px 12px; margin-bottom: 44px; } }
 </style>

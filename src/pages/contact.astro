@@ -1,111 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Nav from '../components/nav.astro'
-
+import Footer from '../components/footer.astro'
 import github from '../assets/github.webp'
 import discord from '../assets/discord.webp'
 import xlogo from '../assets/xlogo.png'
-import Footer from '../components/footer.astro'
-
 const contacts = [
-    {
-        name: "GitHub",
-        href: "https://github.com/baiyo",
-        icon: github.src,
-        handle: "@baiyo"
-    },
-    {
-        name: "Roblox Portfolio server",
-        href: "https://discord.gg/WrUuWfzSTe",
-        icon: discord.src,
-        handle: "@stellovate"
-    },
-
-    {
-        name: "X/Twitter",
-        href: "https://x.com/stellovate",
-        icon: xlogo.src,
-        handle: "@stellovate"
-    },
+  { name: 'GitHub', href: 'https://github.com/baiyo', icon: github.src, handle: '@baiyo', description: 'Code, experiments, and things in progress.' },
+  { name: 'Roblox Portfolio server', href: 'https://discord.gg/WrUuWfzSTe', icon: discord.src, handle: '@stellovate', description: 'My game development portfolio on Discord.' },
+  { name: 'X / Twitter', href: 'https://x.com/stellovate', icon: xlogo.src, handle: '@stellovate', description: 'Find me elsewhere on the internet.' },
 ]
-
 ---
-
-<Layout title="bao">
+<Layout title="Contact · Bao">
   <Nav />
-  <h1><span class="puh">find me on</span></h1>
-  <ul>
-    {contacts.map(p => (
-        <li>
-        <a class="socials" href={p.href} target="_blank">
-            <img class="icons" src={p.icon} alt={p.name} width="16" height="16" />
-            {p.name} — <span class="handle">{p.handle || `@${p.name.toLowerCase()}`}</span>
-        </a>
-        </li>
-
-    ))}
-
-    <li>
-        <a class="socials" target="_blank">
-            <img class="icons" src={discord.src} alt="Discord" width="16" height="16" />
-            Discord — <span class="handle">@stellovate</span>
-        </a>
-    </li>
-  </ul>
-
+  <main id="main">
+    <div class="page-heading"><p class="eyebrow">Let's connect</p><h1>Say <span>hello.</span></h1><p>Have an idea or a question? Heres where to contact me</p></div>
+    <ul class="contacts">{contacts.map(contact => (
+      <li><a href={contact.href} target="_blank" rel="noopener noreferrer" class="social">
+        <div class="icon"><img src={contact.icon} alt="" width="24" height="24" /></div>
+        <div class="details"><h2>{contact.name}</h2><p>{contact.description}</p></div>
+        <span class="handle">{contact.handle}</span><span class="arrow" aria-hidden="true">&#8599;</span>
+      </a></li>
+    ))}</ul>
+    <div class="discord-note"><img src={discord.src} alt="" width="18" height="18" /><p>On Discord as <strong>@stellovate</strong></p></div>
+  </main>
   <Footer />
-  <style>
-    .icons {
-        filter: var(--icon-filter);
-        transition: filter 0.2s ease;
-    }
-
-    .puh {
-        color: var(--color-puh);
-    }
-
-    section {
-        margin-bottom: 2.5rem;
-    }
-
-    ul {
-        margin-top: 1rem;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 0;
-
-    }
-
-    li a {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: var(--color-text);
-        text-decoration: none;
-        font-size: 14px;
-    }
-
-    .socials a img {
-        flex-shrink: 0;
-    }
-
-    .handle {
-        background: var(--secondary-bg);
-        /* border: 2px solid var(--color-border); */
-        border-radius: 10px;
-        padding: 3px 8px;
-        font-size: 13px;
-        color: var(--color-text);
-        transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-    }
-
-    .socials:hover .handle {
-        background: pink;
-        /* border-color: #ffa4f4; */
-        color: var(--color-text);
-    }
-  </style>
-
 </Layout>
+<style>
+  h1 span { color: var(--color-puh); }.contacts { list-style: none; display: grid; gap: 14px; margin-top: 40px; }
+  .social { display: flex; align-items: center; gap: 20px; padding: 24px; background: var(--secondary-bg); border: 1px solid var(--color-border); border-radius: 14px; transition: border-color .2s, transform .2s; }
+  .social:hover { color: var(--color-text); border-color: var(--color-puh); transform: translateX(3px); }
+  .icon { display: grid; place-items: center; width: 48px; height: 48px; flex-shrink: 0; background: var(--color-glass); border: 1px solid var(--color-border); border-radius: 12px; }
+  img { filter: var(--icon-filter); object-fit: contain; } .details { flex: 1; } h2 { font-size: 17px; } .details p { font-size: 12px; margin-top: 7px; }
+  .handle { font: 11px ui-monospace, monospace; color: var(--color-puh); }.arrow { color: var(--color-text-muted); font-size: 22px; }
+  .discord-note { display: flex; align-items: center; gap: 10px; padding-top: 24px; font-size: 12px; }.discord-note strong { font-weight: 500; color: var(--color-text); }
+  @media (max-width: 600px) { .social { padding: 18px; gap: 14px; flex-wrap: wrap; }.details { min-width: 140px; }.handle { margin-left: 62px; }.arrow { margin-left: auto; } }
+</style>

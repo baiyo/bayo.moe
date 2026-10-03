@@ -1,117 +1,34 @@
 ---
 const projects = [
-    {
-        name: "my portfolio",
-        desc: "This site",
-        href: "https://github.com/baiyo/bayo.moe",
-        icon: "https://avatars.githubusercontent.com/u/119372694?v=4&size=64"
-    },
-        {
-        name: "webhookproxy",
-        desc: "A free open source webhook proxy built with fastify",
-        href: "https://webhook.bayo.moe",
-        icon: "https://avatars.githubusercontent.com/u/119372694?v=4&size=64"
-    },
-    {
-        name: "Lament [2025-2026]",
-        desc: "Developer and co owner of this project.",
-        href: "https://www.roblox.com/games/122655569148354/Lament",
-        icon: "https://tr.rbxcdn.com/180DAY-e91ffa877133a1be956102efa43f8996/256/256/Image/Webp/noFilter"
-    },
-    {
-        name: "Weak legacy 2 [2026-2026]",
-        desc: "Hired as a full stack developer with a emphasis on backend development",
-        href: "https://www.roblox.com/games/18337464872/Weak-Legacy-2",
-        icon: "https://tr.rbxcdn.com/180DAY-7faae4baf10fd8ec8fb1e264eb1dba5e/256/256/Image/Webp/noFilter"
-    },
+  { name: 'Lament', category: 'Game development', role: 'Developer & co-owner', desc: 'Full stack development on back end and front end systems', href: 'https://www.roblox.com/games/122655569148354/Lament', icon: 'https://tr.rbxcdn.com/180DAY-e91ffa877133a1be956102efa43f8996/256/256/Image/Webp/noFilter', year: '2025–2026', tags: ['Roblox', 'Lua'], color: 'rose' },
+  { name: 'Weak Legacy 2', category: 'Game development', role: 'Full stack developer', desc: 'Full stack development with an emphasis on backend systems.', href: 'https://www.roblox.com/games/18337464872/Weak-Legacy-2', icon: 'https://tr.rbxcdn.com/180DAY-7faae4baf10fd8ec8fb1e264eb1dba5e/256/256/Image/Webp/noFilter', year: '2026', tags: ['Roblox', 'Backend'], color: 'blue' },
+  { name: 'My portfolio', category: 'Web development', role: 'A space of my own', desc: "The site you're on right now. A home for my projects.", href: 'https://github.com/baiyo/bayo.moe', icon: '/icon.jpeg', year: 'Personal project', tags: ['Astro', 'CSS'], color: 'violet' },
 ]
 ---
-
-<section>
-  <h2>Projects</h2>
+<section id="projects" aria-labelledby="projects-title">
+  <div class="section-heading"><div><p class="eyebrow">Things I've worked on</p><h2 id="projects-title">Selected projects</h2></div></div>
   <div class="grid">
     {projects.map(p => (
-      <a href={p.href} target="_blank" class="card">
-        <div class="card-top">
-          <div class="card-title">
-            {p.icon && <img src={p.icon} alt="" width="20" height="20" />}
-            <span>{p.name}</span>
-          </div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
-          </svg>
-        </div>
-        <p class="card-desc">{p.desc}</p>
+      <a href={p.href} target="_blank" rel="noopener noreferrer" class={`card ${p.color}`}>
+        <div class="card-visual"><img src={p.icon} alt="" width="64" height="64" loading="lazy" /><span class="external" aria-hidden="true">&#8599;</span><span class="category">{p.category}</span></div>
+        <div class="card-body"><p class="year">{p.year}</p><h3>{p.name}</h3><p class="role">{p.role}</p><p class="description">{p.desc}</p><div class="tags">{p.tags.map(tag => <span>{tag}</span>)}</div></div>
       </a>
     ))}
   </div>
 </section>
-
 <style>
-    section {
-        margin-bottom: 2rem;
-    }
-
-    h2 {
-        font-size: 1.1rem;
-        margin-bottom: 0.75rem;
-    }
-
-    .grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-    }
-
-    .card {
-        background: var(--secondary-bg);
-        border: 1px solid var(--color-border);
-        border-radius: 8px;
-        padding: 0.75rem 1rem;
-        text-decoration: none;
-        color: var(--color-text);
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        transition: border-color 0.2s ease, background 0.2s ease, transform 0.3s ease;
-    }
-
-    .card:hover {
-        border-color: var(--color-puh);
-        text-decoration: none;
-        transform: translateY(-3px);
-    }
-
-    .card-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .card-title {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 14px;
-        font-weight: 600;
-    }
-
-    .card-title img {
-        border-radius: 4px;
-    }
-
-    .card-desc {
-        font-size: 13px;
-        color: var(--color-text-muted);
-        line-height: 1.5;
-    }
-
-    svg {
-        flex-shrink: 0;
-        opacity: 0.5;
-    }
-
-    @media (max-width: 500px) {
-        .grid { grid-template-columns: 1fr; }
-    }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card { border: 1px solid var(--color-border); border-radius: 14px; overflow: hidden; background: var(--secondary-bg); display: flex; flex-direction: column; transition: transform .2s, border-color .2s; }
+  .card:hover { transform: translateY(-5px); border-color: var(--color-puh); color: var(--color-text); }
+  .card-visual { position: relative; height: 144px; padding: 24px; background: radial-gradient(ellipse at 30% 20%, var(--project-tint), transparent 80%), var(--color-glass); border-bottom: 1px solid var(--color-border); }
+  .rose { --project-tint: #ce75992b; } .blue { --project-tint: #6ca4da2b; } .violet { --project-tint: #ab8dec2b; }
+  .card-visual img { border-radius: 14px; object-fit: cover; box-shadow: 0 8px 20px #0002; }
+  .external { position: absolute; top: 18px; right: 20px; color: var(--color-text-muted); font-size: 22px; } .card:hover .external { color: var(--color-puh); }
+  .category { position: absolute; bottom: 16px; left: 24px; font: 11px ui-monospace, monospace; color: var(--color-text-muted); }
+  .card-body { padding: 22px; display: flex; flex-direction: column; flex: 1; } .year { font: 11px ui-monospace, monospace; margin-bottom: 12px; }
+  h3 { font-size: 20px; margin-bottom: 8px; } .role { font-size: 12px; color: var(--color-puh); margin-bottom: 12px; } .description { font-size: 13px; line-height: 1.8; margin-bottom: 24px; }
+  .tags { display: flex; gap: 6px; margin-top: auto; } .tags span { font: 10px ui-monospace, monospace; border: 1px solid var(--color-border); padding: 4px 8px; border-radius: 5px; color: var(--color-text-muted); }
+  @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } .card { flex-direction: row; } .card-visual { height: auto; width: 150px; flex-shrink: 0; border-bottom: 0; border-right: 1px solid var(--color-border); } .category { max-width: 110px; } .external { top: auto; bottom: 40px; } .card-body { padding: 20px; } }
+  @media (max-width: 500px) { .card-visual { width: 100px; padding: 16px; } .category { left: 12px; max-width: 80px; font-size: 10px; } .card-visual img { width: 56px; height: 56px; } }
+  @media (max-width: 350px) { .card { flex-direction: column; } .card-visual { width: 100%; height: 110px; border-right: 0; border-bottom: 1px solid var(--color-border); } .category { bottom: 16px; left: 90px; max-width: none; } .external { bottom: auto; top: 16px; } }
 </style>
