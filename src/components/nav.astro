@@ -2,25 +2,118 @@
 const links = [{ href: '/', label: 'Home' }, { href: '/about', label: 'About' }, { href: '/contact', label: 'Contact' }]
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/'
 ---
-<nav aria-label="Main navigation">
-  <a class="brand" href="/" aria-label="Bao home">bao<span>.</span><span class="brand-note">/ developer</span></a>
+<nav aria-label="Main navigation"><a class="brand" href="/" aria-label="Bao home">bao<span>.</span><span
+      class="brand-note">/ developer</span></a>
   <div class="navigation">
-    <div class="links">{links.map(link => <a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined}>{link.label}</a>)}</div>
-    <button id="theme-toggle" aria-label="Switch to light theme">
-      <svg id="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
-      <svg id="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.5 13.5A9 9 0 0 1 10.5 3a9 9 0 1 0 10 10.5Z"/></svg>
-    </button>
+    <div class="links"> {
+      links.map(link=> <a href={ link.href } aria-current={ currentPath===link.href ? 'page' : undefined }> {
+        link.label
+        }
+
+      </a>)
+      }
+
+    </div><button id="theme-toggle" aria-label="Switch to light theme"><svg id="icon-sun" width="17" height="17"
+        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5" /></svg><svg
+        id="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+        aria-hidden="true">
+        <path d="M20.5 13.5A9 9 0 0 1 10.5 3a9 9 0 1 0 10 10.5Z" /></svg></button>
   </div>
 </nav>
-<script>import '../scripts/themes.ts'</script>
+<script>
+  import '../scripts/themes.ts'
+</script>
 <style>
-  nav { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; border-bottom: 1px solid var(--color-border); gap: 16px; }
-  .brand { font-size: 25px; font-weight: 750; letter-spacing: -.06em; } .brand > span:first-child { color: var(--color-puh); }
-  .brand-note { font: 11px ui-monospace, monospace; color: var(--color-text-muted); margin-left: 14px; letter-spacing: 0; }
-  .navigation, .links { display: flex; align-items: center; gap: 24px; }
-  .links a { font-size: 12px; color: var(--color-text-muted); position: relative; } .links a:hover, .links a[aria-current="page"] { color: var(--color-text); }
-  .links a[aria-current="page"]::after { content: ''; position: absolute; bottom: -9px; left: 50%; width: 4px; height: 4px; border-radius: 50%; background: var(--color-puh); }
-  button { display: grid; place-items: center; width: 34px; height: 34px; background: var(--color-glass); border: 1px solid var(--color-border); border-radius: 9px; cursor: pointer; color: var(--color-text-muted); transition: border-color .2s; } button:hover { border-color: var(--color-puh); }
-  #icon-moon { display: none; }
-  @media (max-width: 500px) { nav { padding: 24px 0; }.brand-note { display: none; }.navigation, .links { gap: 18px; } }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--color-border);
+    gap: 16px;
+  }
+
+  .brand {
+    font-size: 25px;
+    font-weight: 750;
+    letter-spacing: -.06em;
+  }
+
+  .brand>span:first-child {
+    color: var(--color-puh);
+  }
+
+  .brand-note {
+    font: 11px ui-monospace, monospace;
+    color: var(--color-text-muted);
+    margin-left: 14px;
+    letter-spacing: 0;
+  }
+
+  .navigation,
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .links a {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    position: relative;
+  }
+
+  .links a:hover,
+  .links a[aria-current="page"] {
+    color: var(--color-text);
+  }
+
+  .links a[aria-current="page"]::after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--color-puh);
+  }
+
+  button {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    background: var(--color-glass);
+    border: 1px solid var(--color-border);
+    border-radius: 9px;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: border-color .2s;
+  }
+
+  button:hover {
+    border-color: var(--color-puh);
+  }
+
+  #icon-moon {
+    display: none;
+  }
+
+  @media (max-width: 500px) {
+    nav {
+      padding: 24px 0;
+    }
+
+    .brand-note {
+      display: none;
+    }
+
+    .navigation,
+    .links {
+      gap: 18px;
+    }
+  }
 </style>

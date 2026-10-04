@@ -1,23 +1,77 @@
----
+--- 
 import Layout from '../layouts/Layout.astro'
 import Nav from '../components/nav.astro'
 import Footer from '../components/footer.astro'
----
+--- 
+
 <Layout title="About · Bao">
   <Nav />
   <main id="main">
-    <div class="page-heading"><p class="eyebrow">The person behind the projects</p><h1>A little about <span>me.</span></h1><p>19 years old. Based in New Zealand. Always learning something new.</p></div>
+    <div class="page-heading">
+      <p class="eyebrow">The person behind the projects</p>
+      <h1>A little about <span>me.</span></h1>
+      <p>19 years old. Based in New Zealand. Always learning something new.</p>
+    </div>
     <div class="about-grid">
-      <section class="panel"><p class="eyebrow">Hello there</p><h2>I'm Bao.</h2><p>Also known as Stellovate online, I'm a self-taught developer learning to build apps. I'm especially interested in game development and web development.</p><p>I like taking an idea and figuring out how to make it work, whether that's a game system or something for the web.</p></section>
-      <section class="panel game-panel"><p class="eyebrow">Where it started</p><h2>Making games.</h2><p>I've been learning game development for about four years, working with engines like Roblox Studio. I've made small games and contributed to bigger projects along the way.</p><a href="/#projects">Take a look at my projects <span aria-hidden="true">&#8599;</span></a></section>
+      <section class="panel">
+        <p class="eyebrow">Hello there</p>
+        <h2>I'm Bao.</h2>
+        <p>Also known as Stellovate online,
+          I'm a self-taught developer learning to build apps. I'm especially interested in game development and web
+          development.</p>
+        <p>I like taking an idea and figuring out how to make it work,
+          whether that's a game system or something for the
+          web.</p>
+      </section>
+      <section class="panel game-panel">
+        <p class="eyebrow">Where it started</p>
+        <h2>Making games.</h2>
+        <p>I've been learning game development for about four years, working with engines like Roblox Studio. I've made
+          small games and contributed to bigger projects along the way.</p><a href="/#projects">Take a look at my
+          projects <span aria-hidden="true">&#8599;
+
+          </span></a>
+      </section>
     </div>
   </main>
   <Footer />
 </Layout>
 <style>
-  h1 span { color: var(--color-puh); }.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
-  h2 { margin: 16px 0 20px; } .panel > p:not(.eyebrow) { font-size: 14px; line-height: 1.9; margin-top: 16px; }
-  .game-panel { background: linear-gradient(145deg, var(--color-glass), transparent), var(--secondary-bg); }.game-panel a { display: inline-block; margin-top: 24px; font-size: 13px; color: var(--color-puh); }
-  .note { margin-top: 32px; font-size: 12px; }
-  @media (max-width: 600px) { .about-grid { grid-template-columns: 1fr; } }
+  h1 span {
+    color: var(--color-puh);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  h2 {
+    margin: 16px 0 20px;
+  }
+
+  .panel>p:not(.eyebrow) {
+    font-size: 14px;
+    line-height: 1.9;
+    margin-top: 16px;
+  }
+
+  .game-panel {
+    background: linear-gradient(145deg, var(--color-glass), transparent), var(--secondary-bg);
+  }
+
+  .game-panel a {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--color-puh);
+  }
+
+  @media (max-width: 600px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

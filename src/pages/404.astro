@@ -6,12 +6,36 @@ import Footer from '../components/footer.astro'
 <Layout title="Page not found · Bao">
   <Nav />
   <main id="main">
-    <div class="page-heading"><p class="eyebrow">404 / Not found</p><h1>bludd where are you</h1><p>This page wandered off. Let's get you back home.</p></div>
-    <img src="https://media.tenor.com/DwUvzOBtTEUAAAAM/speed-ishowspeed.gif" alt="IShowSpeed looking confused" width="300" loading="lazy" />
-    <a class="back" href="/">&#8592; Back to home</a>
+    <div class="page-heading">
+      <p class="eyebrow">404 / Not found</p>
+      <h1>bludd where are you</h1>
+      <p>This page wandered off. Let's get you back home.</p>
+    </div>
+    <img src="https://media.tenor.com/DwUvzOBtTEUAAAAM/speed-ishowspeed.gif" alt="IShowSpeed looking confused"
+      width="300" loading="lazy" /><a class="back" href="/">&#8592;
+
+      Back to home</a>
   </main>
   <Footer />
 </Layout>
 <style>
-  main { text-align: center; } h1 { font-size: clamp(2rem, 6vw, 3rem); } img { max-width: 100%; border-radius: 18px; }.back { display: block; margin-top: 24px; color: var(--color-puh); font-size: 14px; }
+  main {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: 18px;
+  }
+
+  .back {
+    display: block;
+    margin-top: 24px;
+    color: var(--color-puh);
+    font-size: 14px;
+  }
 </style>

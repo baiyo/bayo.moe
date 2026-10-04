@@ -1,9 +1,45 @@
 <section class="web-button" aria-label="My web button">
-  <div><p class="eyebrow">The fam</p></div>
-  <a href="https://bayo.moe" title="Bao's website"><img src="/mybutton.gif" alt="Bao's web button" width="88" height="31" loading="lazy" /></a>
+  <div>
+    <p class="eyebrow">The fam</p>
+  </div><a href="https://bayo.moe" title="Bao's website"><img src="/mybutton.gif" alt="Bao's web button" width="88"
+      height="31" loading="lazy" /></a>
 </section>
 <style>
-  .web-button { margin-top: 40px; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 24px; border: 1px dashed var(--color-border); border-radius: 12px; background: var(--color-glass); }
-  .web-button p + p { font-size: 12px; margin-top: 6px; } a { flex-shrink: 0; line-height: 0; transition: transform .2s; } a:hover { transform: rotate(-4deg); } img { image-rendering: pixelated; }
-  @media (max-width: 500px) { .web-button { align-items: flex-start; flex-direction: column; } }
+  .web-button {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+    border: 1px dashed var(--color-border);
+    border-radius: 12px;
+    background: var(--color-glass);
+  }
+
+  .web-button p+p {
+    font-size: 12px;
+    margin-top: 6px;
+  }
+
+  a {
+    flex-shrink: 0;
+    line-height: 0;
+    transition: transform .2s;
+  }
+
+  a:hover {
+    transform: rotate(-4deg);
+  }
+
+  img {
+    image-rendering: pixelated;
+  }
+
+  @media (max-width: 500px) {
+    .web-button {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
 </style>
